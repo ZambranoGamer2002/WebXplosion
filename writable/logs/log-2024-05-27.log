@@ -1,0 +1,46 @@
+CRITICAL - 2024-05-27 04:11:22 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 226.
+ 1 SYSTEMPATH\CodeIgniter.php(226): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(190): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2024-05-27 04:11:22 --> Uncaught Error: Class "Locale" not found in C:\xampp\htdocs\braxlyproject5-php\system\I18n\TimeTrait.php:74
+Stack trace:
+#0 C:\xampp\htdocs\braxlyproject5-php\system\I18n\TimeTrait.php(115): CodeIgniter\I18n\Time->__construct(NULL, NULL, NULL)
+#1 C:\xampp\htdocs\braxlyproject5-php\system\HTTP\ResponseTrait.php(470): CodeIgniter\I18n\Time::now()
+#2 C:\xampp\htdocs\braxlyproject5-php\system\HTTP\ResponseTrait.php(448): CodeIgniter\HTTP\Response->sendHeaders()
+#3 C:\xampp\htdocs\braxlyproject5-php\system\Debug\Exceptions.php(150): CodeIgniter\HTTP\Response->send()
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\FrameworkException))
+#5 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\FrameworkException
+The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\braxlyproject5-php\system\CodeIgniter.php(226): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\braxlyproject5-php\system\CodeIgniter.php(190): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\braxlyproject5-php\index.php(55): CodeIgniter\CodeIgniter->initialize()
+#3 {main}
+in SYSTEMPATH\I18n\TimeTrait.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-05-27 04:11:22 --> The framework needs the following extension(s) installed and loaded: intl.
+in SYSTEMPATH\CodeIgniter.php on line 226.
+ 1 SYSTEMPATH\CodeIgniter.php(226): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+ 2 SYSTEMPATH\CodeIgniter.php(190): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+ 3 FCPATH\index.php(55): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2024-05-27 04:11:22 --> Uncaught Error: Class "Locale" not found in C:\xampp\htdocs\braxlyproject5-php\system\I18n\TimeTrait.php:74
+Stack trace:
+#0 C:\xampp\htdocs\braxlyproject5-php\system\I18n\TimeTrait.php(115): CodeIgniter\I18n\Time->__construct(NULL, NULL, NULL)
+#1 C:\xampp\htdocs\braxlyproject5-php\system\HTTP\ResponseTrait.php(470): CodeIgniter\I18n\Time::now()
+#2 C:\xampp\htdocs\braxlyproject5-php\system\HTTP\ResponseTrait.php(448): CodeIgniter\HTTP\Response->sendHeaders()
+#3 C:\xampp\htdocs\braxlyproject5-php\system\Debug\Exceptions.php(150): CodeIgniter\HTTP\Response->send()
+#4 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\FrameworkException))
+#5 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\FrameworkException
+The framework needs the following extension(s) installed and loaded: intl.
+#0 C:\xampp\htdocs\braxlyproject5-php\system\CodeIgniter.php(226): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 C:\xampp\htdocs\braxlyproject5-php\system\CodeIgniter.php(190): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 C:\xampp\htdocs\braxlyproject5-php\index.php(55): CodeIgniter\CodeIgniter->initialize()
+#3 {main}
+in SYSTEMPATH\I18n\TimeTrait.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
