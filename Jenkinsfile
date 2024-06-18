@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Preparacion') {
             steps {
-                git 'https://github.com/ZambranoGamer2002/WebXplosion.git'
+                git 'git@github.com:ZambranoGamer2002/WebXplosion.git'
                 echo "Pulled from GitHub successfully"
             }
         }
