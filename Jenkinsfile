@@ -2,22 +2,27 @@ pipeline {
     agent any
 
     stages {
+
+
         stage('Preparacion') {
             steps {
                 git 'git@github.com:ZambranoGamer2002/WebXplosion.git'
-                echo "Pulled from GitHub successfully"
+                echo 'Pulled from GitHub successfully'
+
             }
         }
 
         stage('Verifica version php') {
             steps {
                 sh 'php --version'
+
             }
         }
 
         stage('Ejecutar php') {
             steps {
                 sh 'php index.php'
+                
             }
         }
 
