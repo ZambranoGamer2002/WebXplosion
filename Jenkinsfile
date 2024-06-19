@@ -1,42 +1,59 @@
 pipeline {
     agent any
 
+    environment {
+        PHP_VERSION = '7.4' // Cambia a la versión de PHP que estés utilizando
+    }
+
     stages {
-
-
-        stage('Preparacion') {
+        stage('Clonar Repositorio') {
             steps {
-                git 'git@github.com:ZambranoGamer2002/WebXplosion.git'
-                echo 'Pulled from GitHub successfully'
-
+                script {
+                    // Clonar el repositorio de GitHub
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']],
+                        userRemoteConfigs: [[url: 'git@github.com:ZambranoGamer2002/WebXplosion.git',
+                                             credentialsId: 'jenkins-ssh-key-id']]
+                    ])
+                }
             }
         }
 
-        stage('Verifica version php') {
+        stage('Preparar') {
             steps {
-                sh 'php --version'
-
+                script {
+                    // Instalar dependencias utilizando Composer
+                    sh 'composer install'
+                }
             }
         }
 
-        stage('Ejecutar php') {
+        stage('Ejecutar Pruebas') {
             steps {
-                sh 'php index.php'
-                
+                script {
+                    // Ejecutar pruebas utilizando PHPUnit
+                    sh './vendor/bin/phpunit --configuration phpunit.xml.dist'
+                }
             }
         }
 
-        //Revisa la calidad de codigo con SonarQube
-        //stage ('SonarQube') {
-        //    steps {
-        //        script {
-        //            def scannerHome = tool name: 'sonarscanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation';
-        //            echo "scannerHome = $scannerHome ......."
-        //            withSonarQubeEnv() {
-        //                sh "$scannerHome/bin/sonar-scanner"
-        //            }
-        //        }
-        //    }
-        //}
+        stage('Publicar Resultados') {
+            steps {
+                // Publicar resultados de pruebas
+                junit 'build/logs/logfile.xml'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Archivar los artefactos siempre
+            archiveArtifacts artifacts: 'build/logs/**', allowEmptyArchive: true
+        }
+        success {
+            echo 'La construcción y las pruebas han sido exitosas.'
+        }
+        failure {
+            echo 'La construcción o las pruebas han fallado.'
+        }
     }
 }
