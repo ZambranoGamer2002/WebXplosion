@@ -1,44 +1,34 @@
 pipeline {
     agent any
 
-    environment {
-        PHP_VERSION = '7.4' // Cambia a la versión de PHP que estés utilizando
-    }
-
     stages {
-        stage('Clonar Repositorio') {
+        stage('Preparacion') {
             steps {
-                script {
-                    // Clonar el repositorio de GitHub
-                    checkout([$class: 'GitSCM', branches: [[name: '*/main']],
-                        userRemoteConfigs: [[url: 'git@github.com:ZambranoGamer2002/WebXplosion.git',
-                                             credentialsId: 'GITHUB']]
-                    ])
-                }
+                git 'git@github.com:ZambranoGamer2002/WebXplosion.git'
+                echo 'Pulled from GitHub successfully'
             }
         }
 
-        stage('Preparar') {
+        stage('Verifica version php') {
             steps {
-                script {
-                    // Instalar dependencias utilizando Composer
-                    sh 'composer install'
-                }
+                sh 'php --version'
             }
         }
 
-        stage('Ejecutar Pruebas') {
+        stage('Instalar dependencias') {
             steps {
-                script {
-                    // Ejecutar pruebas utilizando PHPUnit
-                    sh './vendor/bin/phpunit --configuration phpunit.xml.dist'
-                }
+                sh 'composer install'
             }
         }
 
-        stage('Publicar Resultados') {
+        stage('Ejecutar pruebas') {
             steps {
-                // Publicar resultados de pruebas
+                sh './vendor/bin/phpunit --configuration phpunit.xml.dist'
+            }
+        }
+
+        stage('Publicar resultados') {
+            steps {
                 junit 'build/logs/logfile.xml'
             }
         }
@@ -46,7 +36,6 @@ pipeline {
 
     post {
         always {
-            // Archivar los artefactos siempre
             archiveArtifacts artifacts: 'build/logs/**', allowEmptyArchive: true
         }
         success {
