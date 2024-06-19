@@ -12,7 +12,7 @@ pipeline {
                     // Clonar el repositorio de GitHub
                     checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                         userRemoteConfigs: [[url: 'git@github.com:ZambranoGamer2002/WebXplosion.git',
-                                             credentialsId: 'jenkins-ssh-key-id']]
+                                             credentialsId: 'GITHUB']]
                     ])
                 }
             }
