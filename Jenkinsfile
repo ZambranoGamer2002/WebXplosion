@@ -15,12 +15,6 @@ pipeline {
             }
         }
 
-        stage('Instalar dependencias') {
-            steps {
-                sh 'composer install'
-            }
-        }
-
         stage('Unit Test php') {
             steps {
                 sh 'chmod +x vendor/bin/phpunit'
