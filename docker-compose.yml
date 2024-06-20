@@ -1,6 +1,6 @@
 services:
    appphp:
-    image: simple-php-website
+    image: webxplosion
     container_name: apisimplephp
     #restart: always
     ports:
