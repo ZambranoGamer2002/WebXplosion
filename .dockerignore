@@ -5,6 +5,7 @@
 **/.dockerignore
 **/.git
 **/.gitignore
+**/vendor
 
 # ignore files
 docker-compose.yml
