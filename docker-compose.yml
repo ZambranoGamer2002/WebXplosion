@@ -1,7 +1,7 @@
 services:
    appphp:
     image: webxplosion
-    container_name: apisimplephp
+    container_name: xplosionphp
     #restart: always
     ports:
       - 80:80
