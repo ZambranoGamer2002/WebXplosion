@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
-        'database' => '',
+        'hostname' => 'mariadbserver.clr84jlj57ru.us-east-1.rds.amazonaws.com',
+        'username' => 'admin',
+        'password' => '5dcdJ_41S?Q+0Sj2Y',
+        'database' => 'xplosion_db',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
